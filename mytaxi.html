@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZipRide - Bike Taxi Booking</title>
+  <link rel="stylesheet" href="mytaxi.css">
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="#">
+      <span class="brand-icon">Z</span>
+      <span>zip<span class="brand-light">ride</span></span>
+    </a>
+
+    <nav>
+      <a href="#booking">Book a ride</a>
+      <a href="#how-it-works">How it works</a>
+    </nav>
+
+    <button class="nav-button" id="helpBtn">Help</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">YOUR CITY. YOUR RIDE.</span>
+        <h1>Beat the traffic.<br><span>Own your time.</span></h1>
+        <p class="hero-description">
+          Quick bike rides, convenient autos, and comfortable
+          cabs. Your next ride is just a few clicks away.
+        </p>
+
+        <div class="trust-row">
+          <span>✓ Easy booking</span>
+          <span>✓ Upfront estimates</span>
+        </div>
+
+        <section class="booking-card" id="booking">
+          <div class="card-heading">
+            <div>
+              <span class="eyebrow">LET'S GET YOU THERE</span>
+              <h2>Book your ride</h2>
+            </div>
+            <span class="live-dot">● Demo</span>
+          </div>
+
+          <form id="bookingForm">
+            <div class="location-fields">
+              <div class="location-symbols">
+                <span class="pickup-dot"></span>
+                <span class="route-line"></span>
+                <span class="destination-dot"></span>
+              </div>
+
+              <div class="field-stack">
+                <label for="pickup">Pickup location</label>
+                <input
+                  id="pickup"
+                  type="text"
+                  placeholder="e.g. Anna Nagar, Chennai"
+                  required
+                  maxlength="120"
+                >
+
+                <div class="field-divider"></div>
+
+                <label for="destination">Where to?</label>
+                <input
+                  id="destination"
+                  type="text"
+                  placeholder="e.g. T. Nagar, Chennai"
+                  required
+                  maxlength="120"
+                >
+              </div>
+            </div>
+
+            <h3 class="section-label">Choose your ride</h3>
+
+            <div class="vehicle-options">
+              <button type="button" class="vehicle selected"
+                data-vehicle="bike" aria-pressed="true">
+                <span class="vehicle-emoji">🏍️</span>
+                <span class="vehicle-name">Bike</span>
+                <span class="vehicle-price" id="bikePrice">₹72</span>
+                <span class="vehicle-time">Fast & easy</span>
+              </button>
+
+              <button type="button" class="vehicle"
+                data-vehicle="auto" aria-pressed="false">
+                <span class="vehicle-emoji">🛺</span>
+                <span class="vehicle-name">Auto</span>
+                <span class="vehicle-price" id="autoPrice">₹108</span>
+                <span class="vehicle-time">More space</span>
+              </button>
+
+              <button type="button" class="vehicle"
+                data-vehicle="cab" aria-pressed="false">
+                <span class="vehicle-emoji">🚕</span>
+                <span class="vehicle-name">Cab</span>
+                <span class="vehicle-price" id="cabPrice">₹180</span>
+                <span class="vehicle-time">Comfortable</span>
+              </button>
+            </div>
+
+            <div class="trip-summary">
+              <div>
+                <span class="summary-label">Estimated trip</span>
+                <strong id="tripDistance">5.2 km · 18 min</strong>
+              </div>
+              <div class="fare-display">
+                <span class="summary-label">Estimated fare</span>
+                <strong id="fare">₹72</strong>
+              </div>
+            </div>
+
+            <p class="demo-note">
+              Sample estimates for demonstration only.
+              No real driver or live route is connected.
+            </p>
+
+            <button type="submit" class="book-button" id="bookBtn">
+              Find my ride <span>→</span>
+            </button>
+
+            <p id="message" class="message" role="status"
+              aria-live="polite"></p>
+          </form>
+        </section>
+      </div>
+
+      <div class="hero-visual">
+        <div class="visual-top">
+          <span class="map-tag">YOUR CITY, CONNECTED</span>
+          <span class="map-status"><span></span> Demo map</span>
+        </div>
+
+        <div class="map">
+          <div class="map-grid"></div>
+          <div class="road road-one"></div>
+          <div class="road road-two"></div>
+          <div class="road road-three"></div>
+          <div class="road road-four"></div>
+          <div class="road road-five"></div>
+
+          <span class="map-label label-one">ANNA NAGAR</span>
+          <span class="map-label label-two">CITY CENTRE</span>
+          <span class="map-label label-three">MAIN ROAD</span>
+
+          <div class="map-route"></div>
+
+          <div class="map-pin pickup-pin">
+            <span>●</span>
+          </div>
+          <div class="map-pin drop-pin">
+            <span>↗</span>
+          </div>
+
+          <div class="map-bike">🏍️</div>
+
+          <div class="map-info">
+            <span class="info-icon">↗</span>
+            <div>
+              <strong>Your next ride</strong>
+              <small>Choose locations to get started</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="visual-bottom">
+          <div class="mini-stat">
+            <span class="stat-icon">⚡</span>
+            <div><strong>Quick</strong><small>Simple booking</small></div>
+          </div>
+          <div class="mini-stat">
+            <span class="stat-icon">₹</span>
+            <div><strong>Clear fares</strong><small>See an estimate first</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-section" id="how-it-works">
+      <span class="eyebrow">THREE SIMPLE STEPS</span>
+      <h2>Your ride, made simple.</h2>
+
+      <div class="steps">
+        <article class="step">
+          <span class="step-number">01</span>
+          <h3>Choose locations</h3>
+          <p>Enter where your journey begins and ends.</p>
+        </article>
+        <article class="step">
+          <span class="step-number">02</span>
+          <h3>Select a ride</h3>
+          <p>Compare sample prices for bikes, autos, and cabs.</p>
+        </article>
+        <article class="step">
+          <span class="step-number">03</span>
+          <h3>Confirm booking</h3>
+          <p>Try the demo booking flow and see the confirmation.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="#">
+      <span class="brand-icon">Z</span>
+      <span>zip<span class="brand-light">ride</span></span>
+    </a>
+    <p>A learning project. Not affiliated with Rapido or Uber.</p>
+    <span>© 2026 ZipRide Demo</span>
+  </footer>
+
+  <script src="mytaxi.js"></script>
+</body>
+</html>
